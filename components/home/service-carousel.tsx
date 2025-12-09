@@ -52,6 +52,7 @@ export default function ServicesCarousel() {
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000 }}
           loop={false}
+          speed={500}
           spaceBetween={40}
           slidesPerView={1}
           breakpoints={{
