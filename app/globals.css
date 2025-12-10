@@ -10,7 +10,7 @@
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0 0);
-  --primary: oklch(75% 0.183 55.934);
+  --primary: oklch(65.81% 0.15761 57.485);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.3 0 0);
   --secondary-foreground: oklch(0.99 0 0);
@@ -140,4 +140,22 @@
   .btn-secondary {
     @apply px-6 py-3 bg-accent text-accent-foreground font-semibold rounded-md hover:opacity-90 transition;
   }
+}
+
+.swiper-pagination {
+  left: 20px !important;
+  right: auto !important;
+}
+
+/* Inactive bullet */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.4); /* light white */
+  opacity: 1; /* ensure visible */
+}
+
+/* Active bullet */
+.swiper-pagination-bullet-active {
+  background-color: #e38902 !important; /* your active color (orange in this example) */
+  width: 14px;
+  height: 14px;
 }

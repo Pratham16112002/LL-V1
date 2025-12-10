@@ -11,8 +11,10 @@ export function Navigation() {
   React.useEffect(() => {
     const handleScroll = () => {
 
-      if(window.scrollY > 80) {
+      if(window.scrollY > 20) {
         setScrolled(true)
+      } else {
+        setScrolled(false)
       }
     }
 
@@ -20,13 +22,13 @@ export function Navigation() {
     return () => {
       window.removeEventListener('scroll',handleScroll)
     }
-  })
+  },[])
   return (
-    <nav className={`sticky top-0 z-50 backdrop-blur-sm shadow-md transition-colors duration-300 
+    <nav className={`sticky top-0 z-50 backdrop-blur-sm shadow-md transition-colors duration-100 
     ${scrolled ? 'text-white' : 'text-foreground'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-18">
-          <Link href="/" className="flex items-center gap-1">
+          <Link href="/" className="flex items-center ">
             <div className="rounded-full flex items-center justify-center pt-2">
               <img
                 src={'/home/live_freely_icon1.png'}
@@ -34,55 +36,55 @@ export function Navigation() {
                 className="size-14"
               />
             </div>
-            <span className="font-medium  text-lg text-foreground hidden sm:inline">
+            <span className="font-medium  text-lg  hidden sm:inline transition duration-100">
               LiveFreely
             </span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-4 ">
             <Link
               href="/"
-              className="text-foreground hover:text-primary transition duration-300"
+              className=" hover:text-primary transition duration-100"
             >
               Home
             </Link>
             <Link
               href="/services"
-              className="text-foreground hover:text-primary transition  duration-300"
+              className=" hover:text-primary transition  duration-100"
             >
               Services
             </Link>
             <Link
               href="/about"
-              className="text-foreground hover:text-primary transition duration-300"
+              className=" hover:text-primary transition duration-100"
             >
               About
             </Link>
             <Link
               href="/portfolio"
-              className="text-foreground hover:text-primary transition duration-300"
+              className=" hover:text-primary transition duration-100"
             >
               Portfolio
             </Link>
             <Link
               href={'/contact-us'}
-              className="bg-primary rounded-sm w-36 h-11  flex items-center justify-center"
+              className="bg-primary shadow rounded-sm w-36 h-11  flex items-center justify-center hover:bg-transparent border-primary transition-colors duration-300 "
             >
               Request Service
             </Link>
             <div className=" flex items-center gap-2">
               <Link
                 href="/contact"
-                className="bg-primary size-13 rounded-md shadow hover:bg-transparent border-primary transition-colors duration-300"
+                className="size-13 rounded-md shadow  flex justify-center items-center"
               >
-                <img src="/home/instagram.png" alt="Instagram" />
+                <img src="/home/instagram.png" className='size-9' alt="Instagram" />
               </Link>
               <Link
                 href="/contact"
-                className="bg-primary size-13 rounded-md shadow hover:bg-transparent border-primary transition-colors duration-300"
+                className="size-13 rounded-md shadow  flex justify-center items-center"
               >
-                <img src="/home/facebook.png" alt="Facebook" />
+                <img src="/home/twitter.png" className='size-9' alt="Facebook" />
               </Link>
             </div>
           </div>
@@ -98,55 +100,49 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div className={`md:hidden pb-4 space-y-2 ${scrolled ? 'text-white' : 'text-foreground'}`}>
             <Link
               href="/"
-              className="block py-2 text-foreground hover:text-primary"
+              className="block py-2  hover:text-primary"
             >
               Home
             </Link>
             <Link
               href="/services"
-              className="block py-2 text-foreground hover:text-primary"
+              className="block py-2  hover:text-primary"
             >
               Services
             </Link>
             <Link
               href="/about"
-              className="block py-2 text-foreground hover:text-primary"
+              className="block py-2  hover:text-primary"
             >
               About
             </Link>
             <Link
               href="/portfolio"
-              className="block py-2 text-foreground hover:text-primary"
+              className="block py-2  hover:text-primary"
             >
               Portfolio
             </Link>
             <Link
-              href="/forms"
-              className="block py-2 text-foreground hover:text-primary"
-            >
-              Forms
-            </Link>
-            <Link
               href={'/contact-us'}
-              className="bg-primary rounded-sm w-36 h-11  flex items-center justify-center"
+              className="bg-primary shadow rounded-sm w-36 h-11  flex items-center justify-center hover:bg-transparent border-primary transition-colors duration-300"
             >
               Request Service
             </Link>
             <div className=" flex items-center justify-end-safe gap-2">
               <Link
                 href="/contact"
-                className="bg-primary size-13 rounded-md shadow hover:bg-transparent border-primary transition-colors duration-300"
+                className="size-13 rounded-md shadow  flex justify-center items-center"
               >
                 <img src="/home/instagram.png" alt="Instagram" />
               </Link>
               <Link
                 href="/contact"
-                className="bg-primary size-13 rounded-md shadow hover:bg-transparent border-primary transition-colors duration-300"
+                className="size-13 rounded-md shadow  flex justify-center items-center"
               >
-                <img src="/home/facebook.png" alt="Facebook" />
+                <img src="/home/twitter.png" alt="Facebook" />
               </Link>
             </div>
           </div>

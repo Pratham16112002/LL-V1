@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, Heart, Users, Lightbulb, Handshake } from 'lucide-react'
 import ServicesCarousel from '@/components/home/service-carousel'
 import WhyChooseUs from '@/components/home/why-choose-us'
+import HomeSectionOne from './components/home-section-1'
 
 export default function Home() {
   return (
@@ -11,50 +12,7 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video/home_section_1.mp4" type="video/mp4" />
-        </video>
-
-        {/* Optional overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Content */}
-        <div className="relative z-10 w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid md:grid-cols-2 gap-8 items-center">
-            
-
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Professional Support Services
-              </h1>
-              <p className="text-lg font-light text-gray-200 mb-8">
-                Live Freely provides comprehensive support services that
-                prioritize your independence...
-              </p>
-
-              <div className="flex gap-4">
-                <Link href="/contact" className="btn-primary">
-                  Get Started
-                </Link>
-                <Link
-                  href="/services"
-                  className="px-6 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white/10 transition"
-                >
-                  Explore Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <HomeSectionOne/>
 
       <ServicesCarousel />
       {/* Services Overview */}
