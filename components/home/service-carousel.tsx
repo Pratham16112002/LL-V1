@@ -1,85 +1,124 @@
-'use client';
+'use client'
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+//@ts-ignore
+import 'swiper/css'
+//@ts-ignore
+import 'swiper/css/navigation'
+//@ts-ignore
+import 'swiper/css/pagination'
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export default function ServicesCarousel() {
   const services = [
     {
-      img: "/service_section_1.png",
-      title: "Household Support",
-      desc: "We specialize in providing assistance with household tasks, helping you maintain a comfortable home environment.",
-      href: "/services#household",
+      img: '/service_section_1.png',
+      title: 'Assist Access/Maintain Employ',
+      desc: 'Support to access or maintain employment opportunities.',
+      href: '/services#0102',
     },
     {
-      img: "/service_section_2.png",
-      title: "Daily Personal Activities",
-      desc: "Our team provides comprehensive support in daily living activities, promoting your independence and autonomy.",
-      href: "/services#personal",
+      img: '/service_section_2.png',
+      title: 'Assist-Life Stage, Transition',
+      desc: 'Support for life transitions, including planning, skill-building and assistance.',
+      href: '/services#0106',
     },
     {
-      img: "/service_section_3.png",
-      title: "Community Activities",
-      desc: "We help you engage with your community through various programs and activities that foster connection and growth.",
-      href: "/services#community",
+      img: '/service_section_3.png',
+      title: 'Assist-Personal Activities',
+      desc: 'Help with daily personal tasks to support independence.',
+      href: '/services#0107',
     },
     {
-      img: "/service_section_4.png",
-      title: "Travel & Transportation",
-      desc: "Our transportation support ensures you can attend appointments and participate in community activities with confidence.",
-      href: "/services#transport",
+      img: '/service_section_4.png',
+      title: 'Assist-Travel/Transport',
+      desc: 'Support with safe and reliable travel and transportation.',
+      href: '/services#0108',
     },
-  ];
+    {
+      img: '/service_section_1.png',
+      title: 'Daily Tasks/Shared Living',
+      desc: 'Assistance with day-to-day domestic activities in shared living arrangements.',
+      href: '/services#0115',
+    },
+    {
+      img: '/service_section_2.png',
+      title: 'Innov Community Participation',
+      desc: 'Programs that encourage community engagement and innovation.',
+      href: '/services#0116',
+    },
+    {
+      img: '/service_section_3.png',
+      title: 'Development-Life Skills',
+      desc: 'Training and support to develop essential life skills.',
+      href: '/services#0117',
+    },
+    {
+      img: '/service_section_4.png',
+      title: 'Household Tasks',
+      desc: 'Support with household cleaning, cooking, and maintenance.',
+      href: '/services#0120',
+    },
+    {
+      img: '/service_section_1.png',
+      title: 'Participate Community',
+      desc: 'Support to participate in community, social, and recreational activities.',
+      href: '/services#0125',
+    },
+    {
+      img: '/service_section_2.png',
+      title: 'Group/Centre Activities',
+      desc: 'Group-based programs delivered in community or centre-based settings.',
+      href: '/services#0136',
+    },
+  ]
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="section-header">Services by Live Freely</h2>
-        <p className="section-subtitle mb-10">
-          We offer a comprehensive range of support services tailored to your unique needs
+    <section className="relative h-[800px] w-full overflow-hidden">
+      {/* Text Layer (Top Content) */}
+      <div className="absolute top-10 left-0 w-full z-20 text-center px-6">
+        <h2 className="section-header text-white">Services by Live Freely</h2>
+        <p className="section-subtitle mb-10 text-white">
+          We offer a comprehensive range of support services tailored to your
+          unique needs
         </p>
+      </div>
 
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
-          loop={false}
-          speed={500}
-          spaceBetween={40}
-          slidesPerView={1}
-          breakpoints={{
-            768: { slidesPerView: 1 },
-            1024: { slidesPerView: 1 },
-            1280: { slidesPerView: 1 },
-          }}
-          className="pb-16!"
-        >
-          {services.map((service, i) => (
-            <SwiperSlide key={i}>
-              <div className="flex w-[70%]  h-72 flex-col md:flex-row items-center  gap-6  mx-auto shadow-2xl rounded-md">
-                <div className=" w-full h-[30%] md:w-[30%]  md:h-full rounded-lg p-2">
-
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-full object-cover h-full rounded-lg "
-                  />
-                  </div>
-
-                <div className=" w-full h-[50%] md:w-[50%] md:h-full p-2">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+      {/* Swiper – fills entire section */}
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000 }}
+        loop={false}
+        speed={900}
+        spaceBetween={0}
+        slidesPerView={'auto'}
+        breakpoints={{
+          768: { slidesPerView: 1 },
+          1024: { slidesPerView: 2 },
+          1280: { slidesPerView: 2 },
+        }}
+        className="absolute inset-0 w-full h-full z-10"
+      >
+        {services.map((service, i) => (
+          <SwiperSlide key={i}>
+            {/* Full-section background image */}
+            <div
+              className="relative w-full h-full bg-center bg-cover p-10"
+              style={{ backgroundImage: `url(${service.img})` }}
+            >
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center ">
+                {/* Text overlay */}
+                <div className="backdrop-blur-sm p-6 rounded-lg max-w-fit mx-12">
+                  <h3 className="text-2xl font-bold mb-3 text-foreground">
                     {service.title}
                   </h3>
 
-                  <p className="text-muted-foreground leading-4 md:mb-4">
+                  <p className="text-foreground mb-4 leading-relaxed">
                     {service.desc}
                   </p>
 
@@ -91,10 +130,10 @@ export default function ServicesCarousel() {
                   </Link>
                 </div>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
-  );
-}   
+  )
+}
