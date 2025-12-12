@@ -3,7 +3,9 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import {  Pagination, Autoplay } from 'swiper/modules'
 
+//@ts-ignore
 import 'swiper/css'
+//@ts-ignore
 import 'swiper/css/pagination'
 
 const supportItems = [
@@ -38,7 +40,7 @@ const supportItems = [
 
 const HomeSectionOne = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden ">
       {/* Background Video */}
       <video
         autoPlay
@@ -54,7 +56,7 @@ const HomeSectionOne = () => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Slider Wrapper */}
-      <div className="relative z-10 w-full h-[600px] flex">
+      <div className="relative z-10 w-full h-[800px] md:h-[700px] mt-20 flex">
         <Swiper
           modules={[ Pagination, Autoplay]}
           pagination={{

@@ -2,19 +2,19 @@ import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import { ArrowRight, Heart, Users, Lightbulb, Handshake } from 'lucide-react'
-import ServicesCarousel from '@/components/home/service-carousel'
+import ServicesCarousel from '@/app/components/home-section-2'
 import WhyChooseUs from '@/components/home/why-choose-us'
 import HomeSectionOne from './components/home-section-1'
+import HomeSectionThree from './components/home-section-3'
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Navigation />
-
       {/* Hero Section */}
      <HomeSectionOne/>
-
       <ServicesCarousel />
+      {/* <HomeSectionThree/> */}
       {/* Services Overview */}
       <section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,6 +231,6 @@ export default function Home() {
       </section>
 
       <Footer />
-    </>
+    </div>
   )
 }

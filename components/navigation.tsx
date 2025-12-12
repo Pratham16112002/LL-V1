@@ -24,11 +24,11 @@ export function Navigation() {
     }
   },[])
   return (
-    <nav className={`sticky top-0 z-50 backdrop-blur-sm shadow-md transition-colors duration-100 
+    <nav className={`fixed w-full top-0 z-50 backdrop-blur-sm shadow-md transition-colors duration-100 
     ${scrolled ? 'text-white' : 'text-foreground'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-18">
-          <Link href="/" className="flex items-center ">
+      <div className='mx-9'>
+        <div className="flex justify-between items-center h-18 ">
+          <Link href="/" className="flex items-center  ">
             <div className="rounded-full flex items-center justify-center pt-2">
               <img
                 src={'/home/live_freely_icon1.png'}
@@ -42,7 +42,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-4 ">
+          <div className="hidden md:flex mr-10 items-center gap-4">
             <Link
               href="/"
               className=" hover:text-primary transition duration-100"
@@ -100,7 +100,7 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className={`md:hidden pb-4 space-y-2 ${scrolled ? 'text-white' : 'text-foreground'}`}>
+          <div className={`md:hidden pb-4 space-y-2 bg-amber-300  ${scrolled ? 'text-white' : 'text-foreground'}`}>
             <Link
               href="/"
               className="block py-2  hover:text-primary"
