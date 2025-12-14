@@ -1,45 +1,21 @@
 const HomeSectionThree = () => {
   return (
-    <div className="h-[600px] flex w-full  pt-7 relative">
+    <div className="h-[1080px] flex w-full  items-center justify-center pt-7 bg-center ">
+      <div className="h-[70%] w-[80%]  flex  bg-cover justify-start  border border-foreground rounded-md"
+        style={{
+          backgroundImage: 'url(/home/home_about_us.png)'
+        }}
+      >
+        <div className="flex flex-1 flex-col items-center gap-12 bg-black/50">
 
-      {/* LEFT IMAGE */}
-      <div className="flex-1 relative">
-        <div
-          className="bg-cover bg-center size-64 ml-11 absolute"
-          style={{
-            backgroundImage: "url('/home/live_freely_icon1.png')",
-          }}
-        ></div>
-
-        {/* Blur Overlay */}
-        <div className="absolute top-0 left-0 h-1/2 w-full backdrop-blur-sm z-10"></div>
+        <div className="flex-1 flex items-end md:items-center">
+        <h3 className="text-center flex-1 text-foreground text-4xl md:text-6xl font-bold mb-5">About Us</h3>
+        </div>
+        <div className="flex-1 flex mx-5 md:mx-8 text-ellipsis mb-5 md:mb-0 ">
+        <span className="text-center  ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet quos eos, eligendi dicta ratione officia totam, deleniti, animi natus quasi neque provident dolore molestiae facere adipisci. Iste consequuntur ut numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis molestias voluptas nulla repudiandae magnam veritatis quas aspernatur fugit ex modi velit laudantium, porro molestiae asperiores tempora commodi? Unde, explicabo non.</span>
+        </div>
+        </div>
       </div>
-
-      {/* RIGHT IMAGE (BOTTOM RIGHT) */}
-      <div className="flex-1 flex items-end justify-end pb-2 pr-11 relative bg-background">
-        <div
-          className="bg-bottom absolute -bottom-38 -right-38 size-[600px]  "
-          style={{
-            backgroundImage: "url('/home/live_freely_icon1.png')",
-          }}
-        ></div>
-
-        {/* Blur Overlay */}
-        <div className="absolute bottom-0 right-0 h-full w-full backdrop-blur-md z-10"></div>
-      </div>
-
-      {/* TEXT ABOVE EVERYTHING */}
-      <div className="absolute h-[90%] mx-10 z-50  p-6 rounded-lg border border-foreground flex justify-center items-center flex-col">
-        <h3 className="text-4xl font-bold text-center mb-20">About Us</h3>
-        <p className="text-foreground text-center text-xl leading-8 max-w-[90%] ">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus repellat
-          accusamus velit vero placeat aliquam, amet labore eos temporibus quo, odit,
-          molestiae exercitationem laboriosam necessitatibus qui atque cupiditate
-          excepturi error Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam praesentium, repudiandae aut inventore similique ducimus impedit id nisi odio est error, optio voluptatibus? Ad eum maxime id facilis, quaerat dolores?.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente impedit cum odit numquam ipsa dignissimos iusto, perferendis obcaecati eligendi sed recusandae alias minus modi vel sequi repellendus? Ex, officia molestiae!
-        </p>
-      </div>
-
     </div>
   );
 };

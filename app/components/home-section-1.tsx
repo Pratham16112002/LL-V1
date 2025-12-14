@@ -40,23 +40,23 @@ const supportItems = [
 
 const HomeSectionOne = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden ">
+    <section className='relative'>
       {/* Background Video */}
       <video
         autoPlay
         muted
         loop={true}
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover "
       >
         <source src="/video/home_section_1.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
 
       {/* Slider Wrapper */}
-      <div className="relative z-10 w-full h-[800px] md:h-[700px] mt-20 flex">
+      <div className="relative z-10 w-full h-[800px] md:h-[700px] flex">
         <Swiper
           modules={[ Pagination, Autoplay]}
           pagination={{
@@ -65,7 +65,6 @@ const HomeSectionOne = () => {
           autoplay={{ delay: 3500 }}
           loop={true}
           direction="vertical"
-          className="w-full"
           speed={900}
         >
           {supportItems.map((item, i) => (

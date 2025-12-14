@@ -24,9 +24,9 @@ export function Navigation() {
     }
   },[])
   return (
-    <nav className={`fixed w-full top-0 z-50 backdrop-blur-sm shadow-md transition-colors duration-100 
+    <nav className={`fixed w-screen top-0 z-50 backdrop-blur-sm shadow-md transition-colors duration-100 
     ${scrolled ? 'text-white' : 'text-foreground'}`}>
-      <div className='mx-9'>
+      <div className=''>
         <div className="flex justify-between items-center h-18 ">
           <Link href="/" className="flex items-center  ">
             <div className="rounded-full flex items-center justify-center pt-2">
@@ -91,7 +91,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden w-16 "
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -100,7 +100,7 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className={`md:hidden pb-4 space-y-2 bg-amber-300  ${scrolled ? 'text-white' : 'text-foreground'}`}>
+          <div className={`md:hidden pb-4 space-y-2  mx-3 ${scrolled ? 'text-white' : 'text-foreground'}`}>
             <Link
               href="/"
               className="block py-2  hover:text-primary"
