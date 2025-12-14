@@ -2,131 +2,25 @@ import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import { ArrowRight, Heart, Users, Lightbulb, Handshake } from 'lucide-react'
-import ServicesCarousel from '@/components/home/service-carousel'
+import ServicesCarousel from '@/app/components/home-section-2'
 import WhyChooseUs from '@/components/home/why-choose-us'
 import HomeSectionOne from './components/home-section-1'
+import HomeSectionThree from './components/home-section-3'
 
 export default function Home() {
   return (
     <>
       <Navigation />
-
       {/* Hero Section */}
      <HomeSectionOne/>
-
       <ServicesCarousel />
+      <HomeSectionThree/>
       {/* Services Overview */}
-      <section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-header">Services by Live Freely</h2>
-          <p className="section-subtitle">
-            We offer a comprehensive range of support services tailored to your
-            unique needs
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Service 1 */}
-            <div className="flex gap-6">
-              <img
-                src="/household-cleaning-support.jpg"
-                alt="Household support"
-                className="w-64 h-64 object-cover rounded-lg flex-shrink-0"
-              />
-              <div>
-                <h3 className="text-2xl font-bold text-foreground mb-3">
-                  Household Support
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  We specialize in providing assistance with household tasks,
-                  helping you maintain a comfortable home environment.
-                </p>
-                <Link
-                  href="/services#household"
-                  className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2"
-                >
-                  Learn More <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 2 */}
-            <div className="flex gap-6 md:flex-row-reverse">
-              <img
-                src="/elderly-person-caregiver.png"
-                alt="Personal care"
-                className="w-64 h-64 object-cover rounded-lg flex-shrink-0"
-              />
-              <div>
-                <h3 className="text-2xl font-bold text-foreground mb-3">
-                  Daily Personal Activities
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Our team provides comprehensive support in daily living
-                  activities, promoting your independence and autonomy.
-                </p>
-                <Link
-                  href="/services#personal"
-                  className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2"
-                >
-                  Learn More <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 3 */}
-            <div className="flex gap-6">
-              <img
-                src="/group-recreational-activities-community.jpg"
-                alt="Community participation"
-                className="w-64 h-64 object-cover rounded-lg flex-shrink-0"
-              />
-              <div>
-                <h3 className="text-2xl font-bold text-foreground mb-3">
-                  Community Activities
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  We help you engage with your community through various
-                  programs and activities that foster connection and growth.
-                </p>
-                <Link
-                  href="/services#community"
-                  className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2"
-                >
-                  Learn More <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 4 */}
-            <div className="flex gap-6 md:flex-row-reverse">
-              <img
-                src="/transportation-assistance-vehicle.jpg"
-                alt="Transportation"
-                className="w-64 h-64 object-cover rounded-lg flex-shrink-0"
-              />
-              <div>
-                <h3 className="text-2xl font-bold text-foreground mb-3">
-                  Travel & Transportation
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Our transportation support ensures you can attend appointments
-                  and participate in community activities with confidence.
-                </p>
-                <Link
-                  href="/services#transport"
-                  className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2"
-                >
-                  Learn More <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Why Choose Us */}
       <WhyChooseUs />
-      <section className="py-20 bg-accent/5">
+      {/* <section className="py-20 bg-accent/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-header">Why Choose Live Freely</h2>
 
@@ -172,10 +66,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-header">What Our Clients Say</h2>
 
@@ -211,7 +105,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">

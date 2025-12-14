@@ -80,7 +80,7 @@ export default function ServicesCarousel() {
   return (
     <section className="relative h-[800px] w-full overflow-hidden">
       {/* Text Layer (Top Content) */}
-      <div className="absolute top-10 left-0 w-full z-20 text-center px-6">
+      <div className="absolute top-24 left-0 w-full z-20 text-center px-6">
         <h2 className="section-header text-white">Services by Live Freely</h2>
         <p className="section-subtitle mb-10 text-white">
           We offer a comprehensive range of support services tailored to your

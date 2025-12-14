@@ -1,12 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { Bricolage_Grotesque } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 // @ts-ignore
 import "./globals.css"
+import { Navigation } from "@/components/navigation"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const  bricolage = Bricolage_Grotesque({
+  subsets : ['latin'],
+  display : 'swap'
+})
 
 export const metadata: Metadata = {
   title: "Live Freely - Professional Support Services",
@@ -21,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={bricolage.className}>
         {children}
         <Analytics />
       </body>
