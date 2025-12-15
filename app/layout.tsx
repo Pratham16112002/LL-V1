@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={bricolage.className}>
+    <html lang="en" className={bricolage.className}>
+      <body className="bg-background">
         {children}
         <Analytics />
       </body>
