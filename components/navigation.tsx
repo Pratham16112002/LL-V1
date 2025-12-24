@@ -6,16 +6,9 @@ import { Menu, X } from 'lucide-react'
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrolled,setScrolled] = React.useState(false)
 
   React.useEffect(() => {
     const handleScroll = () => {
-
-      if(window.scrollY > 20) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
     }
 
     window.addEventListener('scroll',handleScroll)
@@ -24,8 +17,7 @@ export function Navigation() {
     }
   },[])
   return (
-    <nav className={`fixed w-screen top-0 z-50 backdrop-blur-sm shadow-md transition-colors duration-100 
-    ${scrolled ? 'text-white' : 'text-foreground'}`}>
+    <nav className={`fixed w-screen top-0 z-50 bg-background shadow-md transition-colors duration-100 text-foreground`}>
       <div className=''>
         <div className="flex justify-between items-center h-18 ">
           <Link href="/" className="flex items-center  ">
@@ -100,7 +92,7 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className={`md:hidden pb-4 space-y-2  mx-3 ${scrolled ? 'text-white' : 'text-foreground'}`}>
+          <div className={`md:hidden pb-4 space-y-2  mx-3 text-foreground`}>
             <Link
               href="/"
               className="block py-2  hover:text-primary"

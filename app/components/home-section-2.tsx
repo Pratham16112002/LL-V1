@@ -111,14 +111,14 @@ export default function ServicesCarousel() {
               className="relative w-full h-full bg-center bg-cover p-10"
               style={{ backgroundImage: `url(${service.img})` }}
             >
-              <div className="absolute inset-0 bg-black/20 flex items-center justify-center ">
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center ">
                 {/* Text overlay */}
-                <div className="backdrop-blur-sm p-6 rounded-lg max-w-fit mx-12">
-                  <h3 className="text-2xl font-bold mb-3 text-foreground">
+                <div className=" p-6 rounded-lg max-w-fit mx-12">
+                  <h3 className="text-2xl font-bold mb-3 text-background">
                     {service.title}
                   </h3>
 
-                  <p className="text-foreground mb-4 leading-relaxed">
+                  <p className="text-background mb-4 leading-relaxed">
                     {service.desc}
                   </p>
 
