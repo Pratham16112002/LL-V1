@@ -1,20 +1,67 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-
-//@ts-ignore
-import 'swiper/css'
-//@ts-ignore
-import 'swiper/css/navigation'
-//@ts-ignore
-import 'swiper/css/pagination'
-
+import { Pagination, Autoplay } from 'swiper/modules'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
+// Swiper styles
+// @ts-ignore
+import 'swiper/css'
+// @ts-ignore
+import 'swiper/css/pagination'
+import React from 'react'
+import { useWindowWidth } from '@/hooks/useWindowWith'
+
+type Service = {
+  img: string
+  title: string
+  desc: string
+  href: string
+}
+
+type LayoutConfig = {
+  itemsPerSlide: number
+  gridCols: string
+}
+
+const getLayoutConfig = (width: number): LayoutConfig => {
+  if (width < 640) {
+    return {
+      itemsPerSlide: 2,
+      gridCols: 'grid-cols-1',
+    }
+  }
+
+  if (width < 1024) {
+    return {
+      itemsPerSlide: 6,
+      gridCols: 'grid-cols-3',
+    }
+  }
+
+  return {
+    itemsPerSlide: 6,
+    gridCols: 'grid-cols-3',
+  }
+}
+
+// Utility: chunk array into groups of 6
+const chunkArray = <T,>(arr: T[], size: number): T[][] => {
+  const chunks: T[][] = []
+  for (let i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, i + size))
+  }
+  return chunks
+}
+
 export default function ServicesCarousel() {
-  const services = [
+  const width = useWindowWidth()
+
+  // Prevent render until width is known (SSR safe)
+  if (!width) return null
+
+  const services: Service[] = [
     {
       img: '/service_section_1.png',
       title: 'Assist Access/Maintain Employ',
@@ -24,111 +71,130 @@ export default function ServicesCarousel() {
     {
       img: '/service_section_2.png',
       title: 'Assist-Life Stage, Transition',
-      desc: 'Support for life transitions, including planning, skill-building and assistance.',
+      desc: 'Support for life transitions and skill-building.',
       href: '/services#0106',
     },
     {
       img: '/service_section_3.png',
       title: 'Assist-Personal Activities',
-      desc: 'Help with daily personal tasks to support independence.',
+      desc: 'Help with daily personal tasks.',
       href: '/services#0107',
     },
     {
       img: '/service_section_4.png',
       title: 'Assist-Travel/Transport',
-      desc: 'Support with safe and reliable travel and transportation.',
+      desc: 'Safe and reliable transport support.',
       href: '/services#0108',
     },
     {
       img: '/service_section_1.png',
       title: 'Daily Tasks/Shared Living',
-      desc: 'Assistance with day-to-day domestic activities in shared living arrangements.',
+      desc: 'Support with domestic activities.',
       href: '/services#0115',
     },
     {
       img: '/service_section_2.png',
       title: 'Innov Community Participation',
-      desc: 'Programs that encourage community engagement and innovation.',
+      desc: 'Encouraging community engagement.',
       href: '/services#0116',
     },
     {
       img: '/service_section_3.png',
       title: 'Development-Life Skills',
-      desc: 'Training and support to develop essential life skills.',
+      desc: 'Training for essential life skills.',
       href: '/services#0117',
     },
     {
       img: '/service_section_4.png',
       title: 'Household Tasks',
-      desc: 'Support with household cleaning, cooking, and maintenance.',
+      desc: 'Help with cleaning and maintenance.',
       href: '/services#0120',
     },
     {
       img: '/service_section_1.png',
       title: 'Participate Community',
-      desc: 'Support to participate in community, social, and recreational activities.',
+      desc: 'Support for social participation.',
       href: '/services#0125',
     },
     {
       img: '/service_section_2.png',
       title: 'Group/Centre Activities',
-      desc: 'Group-based programs delivered in community or centre-based settings.',
+      desc: 'Group-based community programs.',
       href: '/services#0136',
     },
   ]
 
+  const { itemsPerSlide, gridCols } = getLayoutConfig(width)
+
+  console.log(itemsPerSlide)
+
+  const slides = chunkArray(services, itemsPerSlide)
+  console.log(slides)
   return (
-    <section className="relative h-[800px] w-full overflow-hidden">
-      {/* Text Layer (Top Content) */}
-      <div className="absolute top-24 left-0 w-full z-20 text-center px-6">
-        <h2 className="section-header text-white">Services by Live Freely</h2>
-        <p className="section-subtitle mb-10 text-white">
+    <section className="relative w-full h-[1000px] overflow-hidden bg-background">
+      {/* Header */}
+      <div className="absolute top-4 left-0 w-full z-20 text-center px-6">
+        <h2 className="text-4xl font-bold text-foreground mb-4">
+          Services by Live Freely
+        </h2>
+        <p className="text-foreground max-w-2xl mx-auto">
           We offer a comprehensive range of support services tailored to your
           unique needs
         </p>
       </div>
 
-      {/* Swiper – fills entire section */}
+      {/* Swiper */}
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
-        loop={false}
-        speed={900}
+        autoplay={{ delay: 4000 }}
+        slidesPerView={1}
         spaceBetween={0}
-        slidesPerView={'auto'}
-        breakpoints={{
-          768: { slidesPerView: 1 },
-          1024: { slidesPerView: 2 },
-          1280: { slidesPerView: 2 },
-        }}
-        className="absolute inset-0 w-full h-full z-10"
+        speed={900}
+        className="absolute inset-0 w-full h-full"
       >
-        {services.map((service, i) => (
-          <SwiperSlide key={i}>
-            {/* Full-section background image */}
-            <div
-              className="relative w-full h-full bg-center bg-cover p-10"
-              style={{ backgroundImage: `url(${service.img})` }}
-            >
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center ">
-                {/* Text overlay */}
-                <div className=" p-6 rounded-lg max-w-fit mx-12">
-                  <h3 className="text-2xl font-bold mb-3 text-background">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-background mb-4 leading-relaxed">
-                    {service.desc}
-                  </p>
-
-                  <Link
-                    href={service.href}
-                    className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2"
+        {slides.map((slide, slideIndex) => (
+          <SwiperSlide key={slideIndex}>
+            {/* 🔽 CHANGED: added horizontal padding to give margin on X axis */}
+            <div className="w-full h-full  px-4 sm:px-6 lg:px-10 flex items-center">
+              {/* 🔽 CHANGED: removed dynamic grid-cols and used gridCols */}
+              {/* 🔽 CHANGED: normalized gap */}
+              <div
+                className={`
+            grid
+            grid-rows-2
+            ${gridCols}
+            w-full
+            h-[700px]
+            gap-y-20
+          `}
+              >
+                {slide.map((service, i) => (
+                  <div
+                    key={i}
+                    className="relative w-[550px]  h-80 bg-cover bg-center  overflow-hidden"
+                    style={{ backgroundImage: `url(${service.img})` }}
                   >
-                    Learn More <ArrowRight size={16} />
-                  </Link>
-                </div>
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-6">
+                      <div className="text-white max-w-sm text-center">
+                        <h3 className="text-xl font-semibold mb-2">
+                          {service.title}
+                        </h3>
+
+                        <p className="text-sm mb-4 leading-relaxed">
+                          {service.desc}
+                        </p>
+
+                        <Link
+                          href={service.href}
+                          className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition"
+                        >
+                          Learn More <ArrowRight size={16} />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </SwiperSlide>
