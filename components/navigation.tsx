@@ -161,12 +161,12 @@ export function Navigation() {
               Portfolio
             </Link>
           </div>
-          <div className='mr-14'>
+          <div className='hidden md:flex mr-14'>
           <Link
             href={'/contact-us'}
             className="bg-primary shadow  w-36 h-11  flex items-center justify-center hover:bg-transparent border-primary transition-colors duration-300 "
             >
-            Request Service
+            Contact us
           </Link>
             </div>
 
@@ -196,9 +196,9 @@ export function Navigation() {
             </Link>
             <Link
               href={'/contact-us'}
-              className="bg-primary shadow rounded-sm w-36 h-11  flex items-center justify-center hover:bg-transparent border-primary transition-colors duration-300"
+              className="bg-primary shadow  w-36 h-11  flex items-center justify-center hover:bg-transparent border-primary transition-colors duration-300"
             >
-              Request Service
+              Contact Us
             </Link>
             <div className="flex flex-row gap-3 justify-end-safe pr-5">
               <Link href={'https://www.google.com'} target="_blank">

@@ -33,13 +33,6 @@ const getLayoutConfig = (width: number): LayoutConfig => {
     }
   }
 
-  if (width < 1024) {
-    return {
-      itemsPerSlide: 6,
-      gridCols: 'grid-cols-3',
-    }
-  }
-
   return {
     itemsPerSlide: 6,
     gridCols: 'grid-cols-3',
@@ -156,23 +149,33 @@ export default function ServicesCarousel() {
         {slides.map((slide, slideIndex) => (
           <SwiperSlide key={slideIndex}>
             {/* 🔽 CHANGED: added horizontal padding to give margin on X axis */}
-            <div className="w-full h-full  px-4 sm:px-6 lg:px-10 flex items-center">
+            <div className="w-full h-full px-6 lg:px-12 flex items-center justify-center
+            ">
               {/* 🔽 CHANGED: removed dynamic grid-cols and used gridCols */}
               {/* 🔽 CHANGED: normalized gap */}
               <div
                 className={`
             grid
             grid-rows-2
-            ${gridCols}
+            gap-15
+            place-items-center
             w-full
+            max-w-7xl
+            mx-auto
             h-[700px]
-            gap-y-20
+            grid-cols-[repeat(auto-fit,minmax(280px,1fr))]
           `}
               >
                 {slide.map((service, i) => (
                   <div
                     key={i}
-                    className="relative w-[550px]  h-80 bg-cover bg-center  overflow-hidden"
+                    className="relative
+                          w-full
+                          max-w-sm
+                          aspect-[4/3]
+                          bg-cover
+                          bg-center
+                          overflow-hidden "
                     style={{ backgroundImage: `url(${service.img})` }}
                   >
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-6">
