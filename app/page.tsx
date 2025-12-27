@@ -7,6 +7,7 @@ import WhyChooseUs from '@/components/home/why-choose-us'
 import HomeSectionOne from './components/home-section-1'
 import HomeSectionThree from './components/home-section-3'
 import VisionMissionSection from './components/home-section-4'
+import OurValuesSection from './components/home-section-5'
 
 export default function Home() {
   return (
@@ -14,9 +15,10 @@ export default function Home() {
       <Navigation />
       {/* Hero Section */}
      <HomeSectionOne/>
-      <ServicesCarousel />
       <HomeSectionThree/>
+      <ServicesCarousel />
       <VisionMissionSection/>
+      <OurValuesSection/>
       {/* Services Overview */}
     
       {/* Why Choose Us */}

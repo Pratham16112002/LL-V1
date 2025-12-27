@@ -7,23 +7,26 @@ import { Menu, X } from 'lucide-react'
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const aboutMenu = [
-    { label: 'Our Journey', href: '/about/our-journey' },
-    { label: 'Our Partners', href: '/about/partners' },
-    { label: 'Our Policies', href: '/about/policies' },
-    { label: 'Kuremera NDIS', href: '/about/kuremera-ndis' },
-  ]
+  // const aboutMenu = [
+  //   { label: 'Our Journey', href: '/about/our-journey' },
+  //   { label: 'Our Values', href: '/about/partners' },
+  //   { label: 'Our Policies', href: '/about/policies' },
+  //   { label: 'Kuremera NDIS', href: '/about/kuremera-ndis' },
+  // ]
 
   const servicesMenu = [
-    { label: 'In-Home Support', href: '/services/in-home-support' },
-    { label: 'Supported Independent Living (SIL)', href: '/services/sil' },
-    {
-      label: 'Community Participation',
-      href: '/services/community-participation',
-    },
-    { label: 'Life Skills Development', href: '/services/life-skills' },
-    { label: 'Transport & Travel Support', href: '/services/transport' },
-  ]
+  { label: "Assist Access / Maintain Employ", href: "/services/assist-access-maintain-employ" },
+  { label: "Assist-Life Stage, Transition", href: "/services/assist-life-stage-transition" },
+  { label: "Assist-Personal Activities", href: "/services/assist-personal-activities" },
+  { label: "Assist-Travel / Transport", href: "/services/assist-travel-transport" },
+  { label: "Daily Tasks / Shared Living", href: "/services/daily-tasks-shared-living" },
+  { label: "Innov Community Participation", href: "/services/innov-community-participation" },
+  { label: "Development-Life Skills", href: "/services/development-life-skills" },
+  { label: "Household Tasks", href: "/services/household-tasks" },
+  { label: "Participate Community", href: "/services/participate-community" },
+  { label: "Group / Centre Activities", href: "/services/group-centre-activities" },
+  { label: "Supported Independent Living (SIL)", href: "/services/supported-independent-living" },
+]
 
   React.useEffect(() => {
     const handleScroll = () => {}
@@ -179,11 +182,11 @@ export function Navigation() {
               <div
                 className="
                 absolute left-0 top-full mt-4
-                w-72
+                w-[420px]
                 bg-white
-                shadow-xl
-                rounded-lg
-                py-4
+                shadow-2xl
+                rounded-xl
+                px-6 py-6
                 opacity-0
                 invisible
                 group-hover:opacity-100
@@ -193,28 +196,30 @@ export function Navigation() {
                 z-50
               "
               >
-                {servicesMenu.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="
-                    block px-6 py-3
-                    text-base text-foreground
-                    hover:bg-stone-100
-                    hover:text-primary
-                    transition
-                  "
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                <ul className="space-y-3">
+                  {servicesMenu.map((item, index) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="
+                        flex items-center gap-3
+                        text-base text-foreground
+                        hover:text-primary
+                        transition
+                      "
+                      >
+                        <span>{item.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="relative group">
               {/* Trigger */}
               <div className="flex items-center gap-1 cursor-pointer text-xl hover:text-primary transition">
                 About Us
-                <svg
+                {/* <svg
                   className="w-4 h-4 mt-1 transition-transform duration-200 group-hover:rotate-180"
                   fill="none"
                   stroke="currentColor"
@@ -222,17 +227,16 @@ export function Navigation() {
                   viewBox="0 0 24 24"
                 >
                   <path d="M6 9l6 6 6-6" />
-                </svg>
+                </svg> */}
               </div>
 
               {/* Dropdown */}
-              <div
+              {/* <div
                 className="
                   absolute left-0 top-full mt-4
                   w-64
                   bg-white
                   shadow-xl
-                  rounded-lg  
                   py-4
                   opacity-0
                   invisible
@@ -242,8 +246,8 @@ export function Navigation() {
                   duration-200
                   z-50
                 "
-              >
-                {aboutMenu.map((item) => (
+              > */}
+              {/* {aboutMenu.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -257,8 +261,8 @@ export function Navigation() {
                   >
                     {item.label}
                   </Link>
-                ))}
-              </div>
+                ))} */}
+              {/* </div> */}
             </div>
             <Link
               href="/portfolio"

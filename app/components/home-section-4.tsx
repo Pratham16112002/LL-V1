@@ -5,18 +5,18 @@ export default function VisionMissionSection() {
         Mobile: flex-col (top → bottom)
         Desktop: grid with 2 columns (left → right)
       */}
-      <div className="flex flex-col md:grid md:grid-cols-2">
+      <div className="flex flex-col md:grid md:grid-cols-2 ">
         {/* VISION — TOP on mobile, LEFT on desktop */}
         <div
           className="bg-stone-300 flex flex-col items-end
                         text-foreground px-6 sm:px-10 md:px-16 py-14 md:py-20"
         >
           <div className="ml-auto md:mt-2">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 ">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6 ">
               Our Vision
             </h2>
 
-            <div className="space-y-5 text-sm md:text-base leading-relaxed text-foreground max-w-xl">
+            <div className="space-y-5 text-sm md:text-md leading-relaxed text-foreground max-w-xl">
               <p>
                 To create inclusive and sustainable local communities where
                 people with complex care needs can thrive in a high-quality,
@@ -48,11 +48,11 @@ export default function VisionMissionSection() {
           className="bg-primary 
                         text-white px-6 sm:px-10 md:px-16 py-14 md:py-20 flex items-start flex-col"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
             Our Mission
           </h2>
 
-          <div className="space-y-5 text-sm md:text-base leading-relaxed text-white/95 max-w-xl">
+          <div className="space-y-5 text-sm md:text-md leading-relaxed text-white/95 max-w-xl">
             <p>
               To make high-quality support services and homes accessible to
               everyone with complex care needs, empowering them to live their

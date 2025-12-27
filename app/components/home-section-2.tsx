@@ -115,6 +115,12 @@ export default function ServicesCarousel() {
       desc: 'Group-based community programs.',
       href: '/services#0136',
     },
+    {
+      img: '/service_section_2.png',
+      title: 'Supported Independent Living (SIL)',
+      desc: 'Group-based community programs.',
+      href: '/services#0137',
+    },
   ]
 
   const { itemsPerSlide, gridCols } = getLayoutConfig(width)
