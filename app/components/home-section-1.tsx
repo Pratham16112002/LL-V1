@@ -40,7 +40,7 @@ const supportItems = [
 
 const HomeSectionOne = () => {
   return (
-    <section className='relative'>
+    <section className='relative mt-32'>
       {/* Background Video */}
       <video
         autoPlay
@@ -79,7 +79,7 @@ const HomeSectionOne = () => {
                   </p>
 
                   <div className="flex gap-4">
-                    <Link href={item.buttonAction} className="btn-primary">
+                    <Link href={item.buttonAction} className="btn-primary rounded-none">
                       {item.buttonText}
                     </Link>
                   </div>

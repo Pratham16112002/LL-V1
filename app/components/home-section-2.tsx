@@ -58,7 +58,7 @@ export default function ServicesCarousel() {
     {
       img: '/service_section_1.png',
       title: 'Assist Access/Maintain Employ',
-      desc: 'Support to access or maintain employment opportunities.',
+      desc: 'Support to access.',
       href: '/services#0102',
     },
     {
@@ -119,20 +119,20 @@ export default function ServicesCarousel() {
 
   const { itemsPerSlide, gridCols } = getLayoutConfig(width)
 
-  console.log(itemsPerSlide)
-
   const slides = chunkArray(services, itemsPerSlide)
-  console.log(slides)
+
   return (
-    <section className="relative w-full h-[1000px] overflow-hidden bg-background">
+    <section className=" w-full overflow-hidden bg-stone-200">
       {/* Header */}
-      <div className="absolute top-4 left-0 w-full z-20 text-center px-6">
-        <h2 className="text-4xl font-bold text-foreground mb-4">
+      <div className="w-full text-center px-6 mt-7 mb-12">
+        <h2 className="text-4xl font-bold text-foreground mb-4 ">
           Services by Live Freely
         </h2>
-        <p className="text-foreground max-w-2xl mx-auto">
-          We offer a comprehensive range of support services tailored to your
-          unique needs
+        <p className="text-foreground max-w-2xl mx-auto font-medium">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse,
+          quisquam voluptates sint adipisci ipsam eum maxime distinctio modi
+          quas possimus? Ipsam inventore, reiciendis voluptate dolorem repellat
+          sunt quis quidem iste!
         </p>
       </div>
 
@@ -144,13 +144,15 @@ export default function ServicesCarousel() {
         slidesPerView={1}
         spaceBetween={0}
         speed={900}
-        className="absolute inset-0 w-full h-full"
+        className="h-fit pt-12"
       >
         {slides.map((slide, slideIndex) => (
           <SwiperSlide key={slideIndex}>
             {/* 🔽 CHANGED: added horizontal padding to give margin on X axis */}
-            <div className="w-full h-full px-6 lg:px-12 flex items-center justify-center
-            ">
+            <div
+              className="w-full h-full px-6 lg:px-12 flex items-center pb-9 justify-center
+            "
+            >
               {/* 🔽 CHANGED: removed dynamic grid-cols and used gridCols */}
               {/* 🔽 CHANGED: normalized gap */}
               <div
@@ -162,39 +164,41 @@ export default function ServicesCarousel() {
             w-full
             max-w-7xl
             mx-auto
-            h-[700px]
+            h-fit
             grid-cols-[repeat(auto-fit,minmax(280px,1fr))]
           `}
               >
                 {slide.map((service, i) => (
                   <div
                     key={i}
-                    className="relative
-                          w-full
-                          max-w-sm
-                          aspect-[4/3]
-                          bg-cover
-                          bg-center
-                          overflow-hidden "
-                    style={{ backgroundImage: `url(${service.img})` }}
+                    className="w-full max-w-sm h-fit bg-[#eef6fb]   overflow-hidden shadow-sm flex flex-col"
                   >
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-6">
-                      <div className="text-white max-w-sm text-center">
-                        <h3 className="text-xl font-semibold mb-2">
-                          {service.title}
-                        </h3>
+                    {/* Image */}
+                    <div className="w-auto h-75 overflow-hidden">
+                      <img
+                        src={service.img}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
 
-                        <p className="text-sm mb-4 leading-relaxed">
-                          {service.desc}
-                        </p>
+                    {/* Content */}
+                    <div className="flex flex-col items-center text-center px-6 py-8 flex-1">
+                      <h3 className="text-xl font-semibold text-[#1e4b8f] mb-4">
+                        {service.title}
+                      </h3>
 
-                        <Link
-                          href={service.href}
-                          className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition"
-                        >
-                          Learn More <ArrowRight size={16} />
-                        </Link>
-                      </div>
+                      <p className="text-sm text-gray-600 leading-relaxed mb-8">
+                        {service.desc}
+                      </p>
+                      <Link
+                        href={service.href}
+                        className="mt-auto inline-flex rounded-full items-center justify-center 
+                   bg-primary text-white px-8 py-3  
+                   text-sm font-medium hover:bg-hovered-primary transition"
+                      >
+                        Read More
+                      </Link>
                     </div>
                   </div>
                 ))}

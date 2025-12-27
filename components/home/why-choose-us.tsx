@@ -75,11 +75,11 @@ export default function WhyChooseUs() {
                   p-6 sm:p-8 lg:p-10
                   flex flex-col lg:flex-row
                   gap-10
-                  items-start"
+                  items-center"
         >
           <form
             onSubmit={handleSubmit}
-            className="flex-1 md:flex-[0.6] space-y-6"
+            className="flex flex-1 space-y-6 flex-col"
           >
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex-1">
@@ -91,7 +91,7 @@ export default function WhyChooseUs() {
                   name="first_name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-border  focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border-2 border-border  focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Your first name"
                 />
               </div>
@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
                   name="last_name"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-border  focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border-2 border-border  focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Your last name"
                 />
               </div>
@@ -121,7 +121,7 @@ export default function WhyChooseUs() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-border  focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border-2 border-border   focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="your@email.com"
                 />
               </div>
@@ -135,7 +135,7 @@ export default function WhyChooseUs() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-border  focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border-2 border-border  focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="(555) 000-0000"
                 />
               </div>
@@ -150,32 +150,33 @@ export default function WhyChooseUs() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2 border border-border"
+                className="w-full px-4 py-2 border-2 border-border"
                 placeholder="Tell us more..."
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full  bg-primary py-3 text-white font-semibold"
-            >
-              Send Message
-            </button>
+            <div className="flex w-full items-center justify-center">
+              <button
+                type="submit"
+                className="md:w-[80%] rounded-full  bg-primary py-3 text-white font-semibold"
+              >
+                Send Message
+              </button>
+            </div>
           </form>
           <div
             className="
-            hidden md:flex[0.4]
-            flex-shrink-0
+            hidden md:flex flex-1
+            shrink-0
             items-center
             justify-center
-            w-full
-            max-w-xs
+            max-w-xl
           "
           >
             <img
-              src={'/contact-us/contact-us-title.png'}
+              src={'home/contact_us_section.png'}
               alt="Care support"
-              className="w-full h-auto rounded-xl object-cover"
+              className="w-fit h-auto rounded-xl object-cover"
             />
           </div>
         </div>

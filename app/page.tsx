@@ -6,6 +6,7 @@ import ServicesCarousel from '@/app/components/home-section-2'
 import WhyChooseUs from '@/components/home/why-choose-us'
 import HomeSectionOne from './components/home-section-1'
 import HomeSectionThree from './components/home-section-3'
+import VisionMissionSection from './components/home-section-4'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
      <HomeSectionOne/>
       <ServicesCarousel />
       <HomeSectionThree/>
+      <VisionMissionSection/>
       {/* Services Overview */}
     
       {/* Why Choose Us */}
