@@ -16,7 +16,7 @@ const HomeSectionThree = () => {
         >
           <div className="flex flex-[0.90] justify-center">
             <h3 className="text-4xl font-bold text-background">
-              About us
+              Who we are
             </h3>
           </div>
           <div className="w-full flex items-start">

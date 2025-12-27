@@ -7,6 +7,24 @@ import { Menu, X } from 'lucide-react'
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const aboutMenu = [
+    { label: 'Our Journey', href: '/about/our-journey' },
+    { label: 'Our Partners', href: '/about/partners' },
+    { label: 'Our Policies', href: '/about/policies' },
+    { label: 'Kuremera NDIS', href: '/about/kuremera-ndis' },
+  ]
+
+  const servicesMenu = [
+    { label: 'In-Home Support', href: '/services/in-home-support' },
+    { label: 'Supported Independent Living (SIL)', href: '/services/sil' },
+    {
+      label: 'Community Participation',
+      href: '/services/community-participation',
+    },
+    { label: 'Life Skills Development', href: '/services/life-skills' },
+    { label: 'Transport & Travel Support', href: '/services/transport' },
+  ]
+
   React.useEffect(() => {
     const handleScroll = () => {}
 
@@ -142,18 +160,106 @@ export function Navigation() {
             >
               Home
             </Link>
-            <Link
-              href="/services"
-              className=" hover:text-primary transition  duration-100 text-xl"
-            >
-              Services
-            </Link>
-            <Link
-              href="/about"
-              className=" hover:text-primary transition duration-100 text-xl"
-            >
-              About
-            </Link>
+            <div className="relative group">
+              {/* Trigger */}
+              <div className="flex items-center gap-1 cursor-pointer text-xl hover:text-primary transition">
+                Services
+                <svg
+                  className="w-4 h-4 mt-1 transition-transform duration-200 group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+
+              {/* Dropdown */}
+              <div
+                className="
+                absolute left-0 top-full mt-4
+                w-72
+                bg-white
+                shadow-xl
+                rounded-lg
+                py-4
+                opacity-0
+                invisible
+                group-hover:opacity-100
+                group-hover:visible
+                transition-all
+                duration-200
+                z-50
+              "
+              >
+                {servicesMenu.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="
+                    block px-6 py-3
+                    text-base text-foreground
+                    hover:bg-stone-100
+                    hover:text-primary
+                    transition
+                  "
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="relative group">
+              {/* Trigger */}
+              <div className="flex items-center gap-1 cursor-pointer text-xl hover:text-primary transition">
+                About Us
+                <svg
+                  className="w-4 h-4 mt-1 transition-transform duration-200 group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+
+              {/* Dropdown */}
+              <div
+                className="
+                  absolute left-0 top-full mt-4
+                  w-64
+                  bg-white
+                  shadow-xl
+                  rounded-lg  
+                  py-4
+                  opacity-0
+                  invisible
+                  group-hover:opacity-100
+                  group-hover:visible
+                  transition-all
+                  duration-200
+                  z-50
+                "
+              >
+                {aboutMenu.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="
+          block px-6 py-3
+          text-base text-foreground
+          hover:bg-stone-100
+          hover:text-primary
+          transition
+        "
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <Link
               href="/portfolio"
               className=" hover:text-primary transition duration-100 text-xl"
@@ -161,14 +267,14 @@ export function Navigation() {
               Portfolio
             </Link>
           </div>
-          <div className='hidden md:flex mr-14'>
-          <Link
-            href={'/contact-us'}
-            className="bg-primary shadow  w-36 h-11  flex items-center justify-center hover:bg-transparent border-primary transition-colors duration-300 "
+          <div className="hidden md:flex mr-14">
+            <Link
+              href={'/contact-us'}
+              className="bg-primary shadow  w-36 h-11  flex items-center justify-center hover:bg-transparent border-primary transition-colors duration-300 "
             >
-            Contact us
-          </Link>
-            </div>
+              Contact us
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
